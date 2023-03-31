@@ -1,7 +1,5 @@
-import { Button, Flex, FormControl, FormHelperText, FormLabel, Heading, Input, InputGroup, InputRightElement, VStack , HStack, Text} from "@chakra-ui/react";
-import { type } from "os";
+import { Button, Flex, FormControl, FormHelperText, FormLabel, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { useState } from "react";
-import { FormHeading } from "./FormHeading";
 
 type Form1Type = {
   title?: string,

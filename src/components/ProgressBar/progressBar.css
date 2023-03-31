@@ -1,4 +1,4 @@
-.jumping-cat--jump {
+/* .jumping-cat--jump {
     animation: jump 0.5s ease-in-out;
   }
   
@@ -12,7 +12,7 @@
     100% {
       transform: translateY(0);
     }
-  }
+  } */
   
   .jumping-cat {
     position: absolute;
@@ -21,3 +21,6 @@
     z-index: 999;
   }
   
+  .css-1jrtelv{
+    background-color: #8B4513;
+  }

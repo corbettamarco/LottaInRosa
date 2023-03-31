@@ -23,7 +23,7 @@ export const ProgressBarWithAnimatedImage = ({
         w="40px"
         h="40px"
       />
-      <Progress value={progress} colorScheme="tods" isAnimated size="md" hasStripe />
+      <Progress rounded={"md"} value={progress} bgColor="#F5F5DC"  isAnimated size="md"  />
     </Box>
   );
 };
