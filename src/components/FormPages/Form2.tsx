@@ -1,4 +1,5 @@
 import { FormControl, FormLabel, GridItem, Heading, Input, Select } from "@chakra-ui/react";
+import { FormButton } from "../FormButton";
 
 export const Form2 = () => {
     return (
@@ -137,6 +138,8 @@ export const Form2 = () => {
             w="full"
             rounded="md"
           />
+
+          <FormButton value={1} />
         </FormControl>
       </>
     );
