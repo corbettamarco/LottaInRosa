@@ -15,7 +15,7 @@ export const ProgressBarWithAnimatedImage = ({
     <Box position="relative" mx="5%" mb="5%">
       <Image
         src={
-          "https://toppng.com/uploads/preview/cute-frogs-11549528276ywl3dh0cxv.png"
+          "scarpa.png"
         }
         alt="Jumping cat"
         className={jump ? "jumping-cat jumping-cat--jump" : "jumping-cat"}

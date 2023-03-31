@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useToast } from "@chakra-ui/react";
 import { Form1 } from "./FormPages/Form1";
 import { Form2 } from "./FormPages/Form2";
-import { Form3 } from "./FormPages/Form3";
 import { ProgressBarWithAnimatedImage } from "./ProgressBar/ProgeressBarWithAnimatedImage";
+import { Privacy } from "./FormPages/Privacy";
 
 export const Multistep = () => {
   const toast = useToast();
@@ -40,7 +40,7 @@ export const Multistep = () => {
           jump={jump}
         />
 
-        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
+        {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Privacy />}
         <ButtonGroup mt="5%" w="100%">
           <Flex w="100%" justifyContent="space-between">
             <Flex>

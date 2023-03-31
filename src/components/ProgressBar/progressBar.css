@@ -16,8 +16,8 @@
   
   .jumping-cat {
     position: absolute;
-    bottom: -2px;
-    transition: left 1s ease-in-out;
+    bottom: -14px;
+    transition: left 0.1s ease-in-out;
     z-index: 999;
   }
   

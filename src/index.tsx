@@ -12,9 +12,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider theme={todsTheme}>
-    <Multistep/>    
+    <Multistep/>  
     </ChakraProvider>
-    
   </React.StrictMode>
 );
 
