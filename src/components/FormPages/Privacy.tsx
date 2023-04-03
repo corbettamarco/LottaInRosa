@@ -1,22 +1,50 @@
-import { Checkbox, FormControl, HStack, Link, Stack, Text } from "@chakra-ui/react";
+import {
+  Checkbox,
+  FormControl,
+  HStack,
+  Link,
+  Stack,
+  Text
+} from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import { FormType } from "../../types/FormTypes";
 
-export const Privacy = () => {
+export const Privacy = ({ setFormData, formData, formNumber }: FormType) => {
   const { register } = useForm({
     mode: "onChange",
   });
+
+
+  const handleUpdateFormData = () => {
+    setFormData({ ...formData, [formNumber]: !formData.form8 });
+    console.log(formData.form8);
+  };
   return (
     <Stack>
-      <Text> Letta  <Link href='https://www.tods.com/it-it/privacy-policy/' isExternal color='blue' > l'Informativa Privacy</Link>,</Text>
+      <Text>
+        {" "}
+        Letta{" "}
+        <Link
+          href="https://www.tods.com/it-it/privacy-policy/"
+          isExternal
+          color="blue"
+        >
+          {" "}
+          l'Informativa Privacy
+        </Link>
+        ,
+      </Text>
       <HStack>
         <Text>*</Text>
         <FormControl isRequired>
           <Checkbox
             isRequired
             colorScheme={"tods"}
-            {...register("name", {
+            {...register("privacy", {
               required: "E' necessarrio accettare",
             })}
+            onChange={handleUpdateFormData}
+            isChecked={formData.form8}
           >
             {" "}
             <Text mt="1.5rem">

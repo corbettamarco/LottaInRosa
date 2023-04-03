@@ -1,37 +1,45 @@
-
-import {Flex, Heading, Text } from "@chakra-ui/react"
-
+import { Flex, Heading, HStack, Text } from "@chakra-ui/react";
 
 type formHeadingProps = {
-    pagenumber?: number,
-    title?: string,
-    subtitle?: string
-}
-export const FormHeading = ({ pagenumber, title, subtitle }: formHeadingProps) => {
-
-    return (
-        <>
-            <Flex justifyContent={"center"} alignItems="baseline">
-
-                <Text fontWeight={"light"} color={"lightgrey"} fontSize="2xl" paddingRight={"1%"}>
-                    .{pagenumber
-                        ? pagenumber
-                        : "1"}
-                </Text>
-
-                <Heading textAlign={"center"} fontWeight="semibold" mb="2%" textTransform={"uppercase"} color={"black"} overflow="hidden">
-                    {title
-                        ? title
-                        : "TITLE TITLE TILE ? "}
-                </Heading>
-
-            </Flex>
-            {subtitle &&
-                    <Text fontWeight={"medium"} color={"black"}>
-                        {subtitle
-                            ? subtitle
-                            : "sottotitolo"}
-                    </Text>}
-        </>
-    )
-}
+  pageNumber?: number | string;
+  title?: string;
+  subtitle?: string;
+};
+export const FormHeading = ({
+  pageNumber,
+  title,
+  subtitle,
+}: formHeadingProps) => {
+  return (
+    <>
+      <Flex justifyContent={"center"} justifyItems="center">
+        <HStack alignItems="baseline">
+          <Heading
+            fontSize={["md", "lg", "xl", "2xl", "2xl"]}
+            textAlign={"center"}
+            fontWeight="semibold"
+            mb="2%"
+            textTransform={"uppercase"}
+            color={"black"}
+            overflow="hidden"
+          >
+            <span
+              style={{
+                color: "#858585",
+                fontFamily: "serif",
+                fontWeight: "lighter",
+                paddingRight:".1rem"
+              }}
+            >
+              {pageNumber ? pageNumber : "1"}.
+            </span>
+            {title ? title : "TITLE TITLE TILE ? "}
+          </Heading>
+        </HStack>
+      </Flex>
+      <Text textAlign={"center"} my={"1rem"}>
+        {subtitle ? subtitle : ""}
+      </Text>
+    </>
+  );
+};

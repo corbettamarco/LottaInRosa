@@ -37,6 +37,7 @@ export const todsTheme = extendTheme({
           _hover: {
             bg: " #F5F5DC",
           },
+          h:"2.5rem"
         },
 
         // 5. We can add responsive variants

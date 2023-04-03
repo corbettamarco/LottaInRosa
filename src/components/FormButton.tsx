@@ -1,21 +1,45 @@
-import { Button } from "@chakra-ui/react";
+import { Box, Text, useRadio } from "@chakra-ui/react";
 
-type FormButtonProps = {
-  value: number | string;
-};
+export function FormButton(props: any) {
+  const { getInputProps, getCheckboxProps } = useRadio(props);
+  const input = getInputProps();
+  const checkbox = getCheckboxProps();
 
-export const FormButton = ({ value }: FormButtonProps) => {
+  const handleUpdateFormData = () => {
+    props.setFormData({ ...props.formData, [props.formNumber]: props.buttonNumber });
+    console.log(props.buttonNumber)
+  };
+
   return (
-    <Button
-      mt="1rem"
-      px="2rem"
-      mr='0.5rem'
-      textColor={"orange.600"}
-      bgColor={"white"}
-      borderWidth="1px"
-      borderColor="tods.200"
-    >
-      {value}
-    </Button>
+    <Box as="label">
+      <input {...input} onClick={handleUpdateFormData} />
+      <Box
+        {...checkbox}
+        cursor="pointer"
+        fontWeight="bold"
+        color="orange.600"
+        mt="1rem"
+        px={[".5rem", "1rem", "1rem", "1rem", "1rem"]}
+        mr="0.5rem"
+        bgColor="white"
+        borderWidth="2px"
+        shadow="sm"
+        borderColor="#F5F5DC"
+        _checked={{
+          bg: "#F5F5DC",
+          color: "orange.600",
+          borderColor: "#F5F5DC",
+        }}
+        py={3}
+        rounded="md"
+        textAlign={props.textAlign ? props.textAlign : "center"}
+        maxW="30rem"
+        minW={props.minW ? props.minW : "5rem"}
+      >
+        <Text noOfLines={1} fontSize={["xs", "sm", "md", "lg", "xl"]}>
+          {props.label ? props.label : props.value}
+        </Text>
+      </Box>
+    </Box>
   );
-};
+}
