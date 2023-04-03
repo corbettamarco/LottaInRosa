@@ -1,4 +1,4 @@
-import { Checkbox, FormControl, HStack, Stack, Text } from "@chakra-ui/react";
+import { Checkbox, FormControl, HStack, Link, Stack, Text } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 
 export const Privacy = () => {
@@ -7,6 +7,7 @@ export const Privacy = () => {
   });
   return (
     <Stack>
+      <Text> Letta  <Link href='https://www.tods.com/it-it/privacy-policy/' isExternal color='blue' > l'Informativa Privacy</Link>,</Text>
       <HStack>
         <Text>*</Text>
         <FormControl isRequired>

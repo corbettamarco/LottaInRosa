@@ -1,61 +1,33 @@
-import { Button, Flex, FormControl, FormHelperText, FormLabel, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  Box,
+  FormControl,
+  Heading,
+} from "@chakra-ui/react";
+import { FormButton } from "../FormButton";
 
 type Form1Type = {
-  title?: string,
-  number?: number,
-  subtitle?: string
-}
+  title?: string;
+  number?: number;
+  subtitle?: string;
+};
 
-
-export const Form1 = ({title, number, subtitle}: Form1Type) => {
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
+export const Form1 = ({ title, number, subtitle }: Form1Type) => {
   return (
-
-
-
     <>
-      <Flex>
-        <FormControl mr="5%">
-          <FormLabel htmlFor="first-name" fontWeight={"normal"}>
-            First name
-          </FormLabel>
-          <Input id="first-name" placeholder="First name" />
-        </FormControl>
+      <Heading w="100%" textAlign="center" as="h2" size="6xl" mt="10px">
+        {" "}
+        1. DA QUANTO TEMPO SEI CLIENTE TOD'S?{" "}
+      </Heading>
 
+      <Box textAlign="center" mt="2rem">
         <FormControl>
-          <FormLabel htmlFor="last-name" fontWeight={"normal"}>
-            Last name
-          </FormLabel>
-          <Input id="last-name" placeholder="First name" />
+          <FormButton value={"Primo acquisto"} />
+          <FormButton value={"1 anno"} />
+          <FormButton value={"1-2 anni"} />
+          <FormButton value={"3-4 anni"} />
+          <FormButton value={"più di 6 anni"} />
         </FormControl>
-      </Flex>
-      <FormControl mt="2%">
-        <FormLabel htmlFor="email" fontWeight={"normal"}>
-          Email address
-        </FormLabel>
-        <Input id="email" type="email" />
-        <FormHelperText>We'll never share your email.</FormHelperText>
-      </FormControl>
-
-      <FormControl>
-        <FormLabel htmlFor="password" fontWeight={"normal"} mt="2%">
-          Password
-        </FormLabel>
-        <InputGroup size="md">
-          <Input
-            pr="4.5rem"
-            type={show ? "text" : "password"}
-            placeholder="Enter password"
-          />
-          <InputRightElement width="4.5rem">
-            <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
-      </FormControl>
+      </Box>
     </>
   );
 };

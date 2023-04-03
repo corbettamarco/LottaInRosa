@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react";
 
 type FormButtonProps = {
-  value: number;
+  value: number | string;
 };
 
 export const FormButton = ({ value }: FormButtonProps) => {
@@ -9,6 +9,7 @@ export const FormButton = ({ value }: FormButtonProps) => {
     <Button
       mt="1rem"
       px="2rem"
+      mr='0.5rem'
       textColor={"orange.600"}
       bgColor={"white"}
       borderWidth="1px"

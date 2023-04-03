@@ -1,6 +1,5 @@
-import { Box, Button, ButtonGroup, Flex } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Flex, Image } from "@chakra-ui/react";
 import { useState } from "react";
-
 import { useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { Form1 } from "./FormPages/Form1";
@@ -37,6 +36,7 @@ export const Multistep = () => {
         p={6}
         m="2rem auto"
       >
+        <Image src='tods-logo.png' objectFit='cover' boxSize='150px' display={"block"} ml={"auto"} mr={"auto"} alt='logo' />
         <ProgressBarWithAnimatedImage
           progress={progress}
           setProgress={setProgress}
@@ -44,8 +44,8 @@ export const Multistep = () => {
         />
         {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Privacy />}
         <ButtonGroup mt="5%" w="100%">
-          <Flex w="100%" justifyContent="space-between">
-            <Flex>
+          <Flex w="100%">
+            <Box display={"block"} ml={"auto"} mr={"auto"}>
               <Button
                 onClick={() => {
                   setStep(step - 1);
@@ -53,27 +53,31 @@ export const Multistep = () => {
                 }}
                 hidden={step === 1}
                 colorScheme="tods"
-                variant="solid"
-                w="7rem"
-                mr="5%"
+                variant="outline"
+                bgColor={"#F5F5DC"}
+                w="2.5rem"
+                h='2.5rem'
               >
-                Back
+                🡨
               </Button>
               <Button
-                w="7rem"
+                w="2.5rem"
+                h='2.5rem'
+                ml="1.5rem"
                 hidden={step === 3}
                 onClick={handleClick}
                 colorScheme="tods"
+                bgColor={"#F5F5DC"}
                 variant="outline"
                 disabled={!formState.isValid}
               >
-                Next
+                 🡪
               </Button>
-            </Flex>
+            </Box>
             {step === 3 ? (
               <Button
-                w="7rem"
                 variant="submit"
+                mr={"auto"}
                 onSubmit={() => {
                   toast({
                     title: "Grazie per aver partecipato al sondaggio",
