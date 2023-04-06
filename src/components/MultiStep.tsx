@@ -38,6 +38,7 @@ export const Multistep = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setThankyou(true);
+    console.log(formData)
   };
 
   const handleClick = () => {

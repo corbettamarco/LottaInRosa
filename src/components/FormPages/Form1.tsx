@@ -1,12 +1,14 @@
 import {
   Center,
-  FormControl, Hide,
+  FormControl,
   HStack,
   Show,
   Spacer,
-  Text, useRadioGroup,
-  VStack
+  Stack,
+  Text,
+  useRadioGroup,
 } from "@chakra-ui/react";
+import React from "react";
 import { FormType } from "../../types/FormTypes";
 import { FormButton } from "../FormButton";
 import { FormHeading } from "./FormHeading";
@@ -21,11 +23,11 @@ export const Form1 = ({
 }: FormType) => {
   const options = ["1", "2", "3", "4", "5"];
   const options2 = [
-    "1 - Per niente soddisfatto",
-    "2 - Non molto soddisfatto",
-    "3 - Sufficientemente soddisfatto",
-    "4 - Soddisfatto",
-    "5 - Pienamente soddisfatto",
+    "Per niente soddisfatto",
+    "Non molto soddisfatto",
+    "Sufficientemente soddisfatto",
+    "Soddisfatto",
+    "Pienamente soddisfatto",
   ];
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Form1Group",
@@ -50,54 +52,32 @@ export const Form1 = ({
         </Center>
       </Show>
       <FormControl>
-        <Hide below="md">
-          <Center>
-            <HStack
-              justifyContent={"space-evenly"}
-              {...group}
-              textAlign="center"
-            >
-              {options.map((value, index) => {
-                const radio = getRadioProps({ value });
-                return (
-                  <FormButton
-                    isChecked={radio.isChecked}
-                    formNumber={formNumber}
-                    setFormData={setFormData}
-                    formData={formData}
-                    value={value}
-                    key={value}
-                    buttonNumber={(index + 1).toString()}
-                    {...radio}
-                  />
-                );
-              })}
-            </HStack>
-          </Center>
-        </Hide>
-        <Show below="md">
-          <Center>
-            <VStack {...group} display={"block"} textAlign="center">
-              {options.map((value, index) => {
-                const radio = getRadioProps({ value });
-                return (
-                  <FormButton
-                    isChecked={radio.isChecked}
-                    textAlign={"left"}
-                    value={value}
-                    key={value}
-                    label={options2[index]}
-                    formNumber={formNumber}
-                    setFormData={setFormData}
-                    formData={formData}
-                    buttonNumber={(index + 1).toString()}
-                    {...radio}
-                  />
-                );
-              })}
-            </VStack>
-          </Center>
-        </Show>
+        <Center>
+          <Stack
+            direction={["column", "column", "row", "row", "row"]}
+            justifyContent={"space-evenly"}
+            {...group}
+            textAlign="center"
+          >
+            {options.map((value, index) => {
+              const radio = getRadioProps({ value });
+              return (
+                <FormButton
+                  isChecked={radio.isChecked}
+                  formNumber={formNumber}
+                  setFormData={setFormData}
+                  formData={formData}
+                  value={value}
+                  key={value}
+                  textAlign={["left", "left", "center", "center", "center"]}
+                  buttonNumber={(index + 1).toString()}
+                  {...radio}
+                  label={options2[index]}
+                />
+              );
+            })}
+          </Stack>
+        </Center>
       </FormControl>
     </>
   );

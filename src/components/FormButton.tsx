@@ -1,4 +1,4 @@
-import { Box, Text, useRadio } from "@chakra-ui/react";
+import { Box, Hide, Text, useRadio } from "@chakra-ui/react";
 import React from "react";
 
 export function FormButton(props: any) {
@@ -38,7 +38,7 @@ export function FormButton(props: any) {
         minW={props.minW ? props.minW : "5rem"}
       >
         <Text noOfLines={1} fontSize={["xs", "sm", "md", "lg", "xl"]}>
-          {props.label ? props.label : props.value}
+          {props.value} <Hide above="md"> {props.label}</Hide>
         </Text>
       </Box>
     </Box>
