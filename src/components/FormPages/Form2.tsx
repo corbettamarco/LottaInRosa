@@ -23,6 +23,8 @@ export const Form2 = ({
   pageNumber,
   subtitle,
   formNumber,
+  formTextValue,
+  setFormTextValue,
 }: FormType) => {
   const options = ["1", "2", "3", "4", "5"];
   const options2 = [
@@ -37,7 +39,9 @@ export const Form2 = ({
     defaultValue: formData[formNumber] || "",
   });
   const group = getRootProps();
-
+  const handleChange = (value: string) => {
+    setFormTextValue({...formTextValue, [formNumber]: value });
+  };
   return (
     <>
       <FormHeading
@@ -86,15 +90,18 @@ export const Form2 = ({
 
         <Center mt="2rem">
           <VStack w="50%" minH="8rem">
-            {formData[formNumber] === "1" ||
-              (formData[formNumber] === "2" && (
-                <>
-                  <FormLabel textAlign={"center"} fontStyle={"italic"}>
-                    Quali problemi ha riscontrato?
-                  </FormLabel>
-                  <Textarea placeholder="..." />{" "}
-                </>
-              ))}
+            {(formData[formNumber] === "1" || formData[formNumber] === "2") && (
+              <>
+                <FormLabel textAlign={"center"} fontStyle={"italic"}>
+                  Quali problemi ha riscontrato?
+                </FormLabel>
+                <Textarea
+                  onChange={(e) => handleChange(e.target.value)}
+                  placeholder="..."
+                  value={formTextValue[formNumber]}
+                />{" "}
+              </>
+            )}
           </VStack>
         </Center>
       </FormControl>
