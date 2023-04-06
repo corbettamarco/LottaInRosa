@@ -1,4 +1,5 @@
 import { Flex, Heading, HStack, Text } from "@chakra-ui/react";
+import React from "react";
 
 type formHeadingProps = {
   pageNumber?: number | string;

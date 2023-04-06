@@ -1,9 +1,10 @@
 import { Box, Text, useRadio } from "@chakra-ui/react";
+import React from "react";
 
 export function FormButton(props: any) {
-  const { getInputProps, getCheckboxProps } = useRadio(props);
+  const { getInputProps, getRadioProps } = useRadio(props);
   const input = getInputProps();
-  const checkbox = getCheckboxProps();
+  const checkbox = getRadioProps();
 
   const handleUpdateFormData = () => {
     props.setFormData({ ...props.formData, [props.formNumber]: props.buttonNumber });

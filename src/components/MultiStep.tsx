@@ -5,9 +5,8 @@ import {
   Center,
   Image,
   Text,
-  useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 import { Form1 } from "./FormPages/Form1";
@@ -15,11 +14,12 @@ import { Form2 } from "./FormPages/Form2";
 import { Form3 } from "./FormPages/Form3";
 import { Privacy } from "./FormPages/Privacy";
 import { ProgressBarWithAnimatedImage } from "./ProgressBar/ProgeressBarWithAnimatedImage";
+import { ThankYouPage } from "./FormPages/ThankYouPage";
 
 export const Multistep = () => {
-  const toast = useToast();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(12.5);
+  const [thankyou, setThankyou] = useState(false);
   const [formData, setFormData] = useState({
     form1: "",
     form2: "",
@@ -30,9 +30,15 @@ export const Multistep = () => {
     form7: "",
     form8: false,
   });
+
   const { formState } = useForm({
     mode: "onChange",
   });
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setThankyou(true);
+  };
 
   const handleClick = () => {
     setStep(step + 1);
@@ -64,7 +70,7 @@ export const Multistep = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <Center>
         <Box
           borderWidth="1px"
@@ -86,127 +92,123 @@ export const Multistep = () => {
             mr={"auto"}
             alt="logo"
           />
-          <ProgressBarWithAnimatedImage
-            progress={progress}
-            setProgress={setProgress}
-          />
-          {step === 1 ? (
-            <Form1
-              key={1}
-              formNumber={"form1"}
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 2 ? (
-            <Form2
-              key={2}
-              formNumber={"form2"}
-              subtitle="VELOCITA' DI NAVIGAZIONE"
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 3 ? (
-            <Form2
-              key={3}
-              formNumber={"form3"}
-              subtitle="DESCRIZIONI ED IMMAGINI PRODOTTO"
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 4 ? (
-            <Form2
-              key={4}
-              formNumber={"form4"}
-              subtitle="FACILITA' DI ACQUISTO"
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 5 ? (
-            <Form2
-              key={5}
-              formNumber={"form5"}
-              subtitle="ASSISTENZA ALL'ACQUISTO/SERVIZIO CLIENTI"
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 6 ? (
-            <Form2
-              key={6}
-              formNumber={"form6"}
-              subtitle="SPEDIZIONE & PACKAGING"
-              formData={formData}
-              setFormData={setFormData}
-            />
-          ) : step === 7 ? (
-            <Form3
-              key={7}
-              formNumber={"form7"}
-              title="CONSIGLIERESTI UN PRODOTTO TOD'S AD UN AMICO?"
-              formData={formData}
-              setFormData={setFormData}
-            />
+          {thankyou === false ? (
+            <>
+              <ProgressBarWithAnimatedImage
+                progress={progress}
+                setProgress={setProgress}
+              />
+
+              {step === 1 ? (
+                <Form1
+                  key={1}
+                  formNumber={"form1"}
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 2 ? (
+                <Form2
+                  key={2}
+                  formNumber={"form2"}
+                  subtitle="VELOCITA' DI NAVIGAZIONE"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 3 ? (
+                <Form2
+                  key={3}
+                  formNumber={"form3"}
+                  subtitle="DESCRIZIONI ED IMMAGINI PRODOTTO"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 4 ? (
+                <Form2
+                  key={4}
+                  formNumber={"form4"}
+                  subtitle="FACILITA' DI ACQUISTO"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 5 ? (
+                <Form2
+                  key={5}
+                  formNumber={"form5"}
+                  subtitle="ASSISTENZA ALL'ACQUISTO/SERVIZIO CLIENTI"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 6 ? (
+                <Form2
+                  key={6}
+                  formNumber={"form6"}
+                  subtitle="SPEDIZIONE & PACKAGING"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : step === 7 ? (
+                <Form3
+                  key={7}
+                  formNumber={"form7"}
+                  title="CONSIGLIERESTI UN PRODOTTO TOD'S AD UN AMICO?"
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              ) : (
+                <Privacy
+                  formData={formData}
+                  formNumber={"form8"}
+                  setFormData={setFormData}
+                />
+              )}
+              <ButtonGroup mt="5%" w="100%" minW={"10rem"}>
+                <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"}>
+                  <Button
+                    onClick={() => {
+                      setStep(step - 1);
+                      setProgress(progress - 12.5);
+                    }}
+                    hidden={step === 1}
+                    colorScheme="tods"
+                    variant="outline"
+                    bgColor={"#F5F5DC"}
+                    w="2.5rem"
+                    h="2.5rem"
+                  >
+                    <Text>
+                      <ImArrowLeft2 color="#8B4513" />
+                    </Text>
+                  </Button>
+                  <Button
+                    w="2.5rem"
+                    h="2.5rem"
+                    ml="1.5rem"
+                    hidden={step === 8 || isFormPageEmpty()}
+                    onClick={handleClick}
+                    colorScheme="tods"
+                    bgColor={"#F5F5DC"}
+                    variant="outline"
+                  >
+                    <Text>
+                      <ImArrowRight2 color="#8B4513" />
+                    </Text>
+                  </Button>
+                </Box>
+                {step === 8 ? (
+                  <Button
+                    variant="submit"
+                    mr={"auto"}
+                    type="submit"
+                    disabled={!formState.isValid}
+                  >
+                    Invia
+                  </Button>
+                ) : null}
+              </ButtonGroup>
+            </>
           ) : (
-            <Privacy
-              formData={formData}
-              formNumber={"form8"}
-              setFormData={setFormData}
-            />
+            <ThankYouPage />
           )}
-          <ButtonGroup mt="5%" w="100%" minW={"10rem"}>
-            <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"}>
-              <Button
-                onClick={() => {
-                  setStep(step - 1);
-                  setProgress(progress - 12.5);
-                }}
-                hidden={step === 1}
-                colorScheme="tods"
-                variant="outline"
-                bgColor={"#F5F5DC"}
-                w="2.5rem"
-                h="2.5rem"
-              >
-                <Text>
-                  <ImArrowLeft2 color="#8B4513" />
-                </Text>
-              </Button>
-              <Button
-                w="2.5rem"
-                h="2.5rem"
-                ml="1.5rem"
-                hidden={step === 8 || isFormPageEmpty()}
-                onClick={handleClick}
-                colorScheme="tods"
-                bgColor={"#F5F5DC"}
-                variant="outline"
-              >
-                <Text>
-                  <ImArrowRight2 color="#8B4513" />
-                </Text>
-              </Button>
-            </Box>
-            {step === 8 ? (
-              <Button
-                variant="submit"
-                mr={"auto"}
-                onSubmit={() => {
-                  toast({
-                    title: "Grazie per aver partecipato al sondaggio",
-                    description:
-                      "Riceverai il codice sconto al tuo indirizzo email",
-                    colorScheme: "tods",
-                    status: "success",
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}
-                type="submit"
-                disabled={!formState.isValid}
-              >
-                Invia
-              </Button>
-            ) : null}
-          </ButtonGroup>
         </Box>
       </Center>
     </form>
