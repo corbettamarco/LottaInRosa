@@ -1,16 +1,25 @@
 import { Box, Center, Image } from "@chakra-ui/react";
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FormButtonGroup } from "./FormButtonGroup";
-import { ThankYouPage } from "./FormPages/ThankYouPage";
-import { ProgressBarWithAnimatedImage } from "./ProgressBar/ProgeressBarWithAnimatedImage";
-import { useFormValues } from "./hooks/useFormValues";
-import { getForms } from "./utils/getForms";
+import { FormButtonGroup } from "../components/FormButtonGroup";
+import { ThankYouPage } from "../components/FormPages/ThankYouPage";
+import { ProgressBarWithAnimatedImage } from "../components/ProgressBar/ProgeressBarWithAnimatedImage";
+import { useFormValues } from "../components/hooks/useFormValues";
+import { useProgress } from "../components/hooks/useProgress";
+import { getForms } from "../components/utils/getForms";
+import "./animations.css";
 
 export const Multistep = () => {
-  const [step, setStep] = useState(1);
-  const [progress, setProgress] = useState(12.5);
-  const [thankyou, setThankyou] = useState(false);
+  const {
+    step,
+    progress,
+    setProgress,
+    isAnimating,
+    handleBackClick,
+    handleNextClick,
+    slideDirection,
+    thankyou,
+    setThankyou,
+  } = useProgress();
   const { formData, setFormData, formTextValue, setFormTextValue } =
     useFormValues();
 
@@ -42,17 +51,8 @@ export const Multistep = () => {
     console.log(mergedFormData);
   };
 
-  const handleClick = () => {
-    setStep(step + 1);
-    if (step === 8) {
-      setProgress(100);
-    } else {
-      setProgress(progress + 12.5);
-    }
-  };
-
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <form onSubmit={(e) => handleSubmit(e)} style={{ overflowX: "clip" }}>
       <Center>
         <Box
           borderWidth="1px"
@@ -80,15 +80,22 @@ export const Multistep = () => {
                 progress={progress}
                 setProgress={setProgress}
               />
-              <Box className="form-container">
+              <Box
+                className={
+                  isAnimating
+                    ? ""
+                    : slideDirection === "right"
+                    ? "slide-in-right"
+                    : "slide-in-left"
+                }
+                h={["fit-content", "fit-content", "60vh", "60vh", "60vh"]}
+              >
                 {forms.find((form) => form.key === step)?.component}
               </Box>
               <FormButtonGroup
                 formData={formData}
-                handleClick={handleClick}
-                progress={progress}
-                setProgress={setProgress}
-                setStep={setStep}
+                handleNextClick={handleNextClick}
+                handleBackClick={handleBackClick}
                 step={step}
                 formState={formState}
               />

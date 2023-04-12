@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { Multistep } from './components/MultiStep';
+import { Multistep } from './MultiStep/MultiStep';
 import { ChakraProvider } from '@chakra-ui/react';
 import todsTheme from './theme';
 

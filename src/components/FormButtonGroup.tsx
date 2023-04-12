@@ -6,24 +6,26 @@ import { FieldValues, FormState } from "react-hook-form";
 
 type FormButtonGroupType = {
   step: number;
-  setStep: (step: number) => void;
-  progress: number;
-  setProgress: (progress: number)=>void
-  formData: any
-  handleClick: ()=> void
-  formState:FormState<FieldValues>
+  formData: any;
+  handleNextClick: () => void;
+  handleBackClick: () => void;
+  formState: FormState<FieldValues>;
 };
 
-export const FormButtonGroup = ({step, setStep, progress, setProgress, formData, handleClick, formState}: FormButtonGroupType) => {
+export const FormButtonGroup = ({
+  step,
+
+  formData,
+  handleNextClick,
+  handleBackClick,
+  formState,
+}: FormButtonGroupType) => {
   return (
-    <ButtonGroup mt="5%" w="100%" minW={"10rem"}>
+    <ButtonGroup mt="1rem" w="100%" minW={"10rem"}>
       <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"}>
         <Button
-          onClick={() => {
-            setStep(step - 1);
-            setProgress(progress - 12.5);
-          }}
-          hidden={step === 1}
+          onClick={handleBackClick}
+          visibility={step === 1 ? "hidden" : "visible"}
           colorScheme="tods"
           variant="outline"
           bgColor={"#F5F5DC"}
@@ -39,7 +41,7 @@ export const FormButtonGroup = ({step, setStep, progress, setProgress, formData,
           h="2.5rem"
           ml="1.5rem"
           hidden={step === 8 || isFormPageEmpty(step, formData)}
-          onClick={handleClick}
+          onClick={handleNextClick}
           colorScheme="tods"
           bgColor={"#F5F5DC"}
           variant="outline"
