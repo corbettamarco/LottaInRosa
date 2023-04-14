@@ -17,17 +17,26 @@ export type FormTextValueType = {
   form5: string;
   form6: string;
   [key: string]: string;
-}
+};
 
-export type MErgedFormDataType= {
-  form1:string;
-
+export type FormValueType = {
+  form1: string;
   form2: string;
   form3: string;
   form4: string;
   form5: string;
   form6: string;
-
   form7: string;
-  form8: boolean;
-}
+};
+
+export type MergedFormDataType = {
+  form1: string;
+  form2: string;
+  form3: string;
+  form4: string;
+  form5: string;
+  form6: string;
+  form7: string;
+  privacy: boolean;
+  marketing: boolean;
+};

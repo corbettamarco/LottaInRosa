@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { FormTextValueType } from "../../types/FormTypes";
+import { FormTextValueType, FormValueType } from "../../types/FormTypes";
 
 export const useFormValues = ()=>{
 
-    const [formData, setFormData] = useState<any>({
+    const [formData, setFormData] = useState<FormValueType>({
         form1: "",
         form2: "",
         form3: "",
@@ -11,7 +11,6 @@ export const useFormValues = ()=>{
         form5: "",
         form6: "",
         form7: "",
-        form8: false,
       });
     
       const [formTextValue, setFormTextValue] = useState<FormTextValueType>({

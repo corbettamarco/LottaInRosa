@@ -1,4 +1,5 @@
 import { Box, Center, Image } from "@chakra-ui/react";
+import { FormEvent } from "react";
 import { useForm } from "react-hook-form";
 import { FormButtonGroup } from "../components/FormButtonGroup";
 import { ThankYouPage } from "../components/FormPages/ThankYouPage";
@@ -7,6 +8,7 @@ import { useFormValues } from "../components/hooks/useFormValues";
 import { useProgress } from "../components/hooks/useProgress";
 import { getForms } from "../components/utils/getForms";
 import "./animations.css";
+import { MergedFormDataType } from "../types/FormTypes";
 
 export const Multistep = () => {
   const {
@@ -34,21 +36,29 @@ export const Multistep = () => {
     mode: "onChange",
   });
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setThankyou(true);
-    const mergedFormData = Object.entries(formData).reduce(
-      (acc, [key, value]) => ({
-        ...acc,
-        [key]: {
-          textValue: formTextValue[key] || "",
-          points: value,
-        },
-      }),
+    const mergedFormData: any = Object.entries(formData).reduce(
+      (accumulator, [key, value]) => {
+        if (key !== "form8") {
+          return {
+            ...accumulator,
+            [key]: {
+              textValue: formTextValue[key] || "",
+              points: value,
+            },
+          };
+        }
+        return accumulator;
+      },
       {}
     );
+    mergedFormData.marketing = mergedFormData.marketing.points;
+    mergedFormData.privacy = mergedFormData.privacy.points;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const formResult: MergedFormDataType = mergedFormData; //form output
 
-    console.log(mergedFormData);
   };
 
   return (

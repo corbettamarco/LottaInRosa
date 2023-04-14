@@ -15,9 +15,14 @@ export const Privacy = ({ setFormData, formData, formNumber }: FormType) => {
   });
 
 
-  const handleUpdateFormData = () => {
-    setFormData({ ...formData, [formNumber]: !formData.form8 });
-    console.log(formData.form8);
+  const handleUpdatePrivacy = () => {
+    setFormData({ ...formData, privacy: !formData.privacy });
+    console.log(formData.privacy);
+  };
+
+  const handleUpdateMarketing = () => {
+    setFormData({ ...formData, marketing: !formData.marketing });
+    console.log(formData.marketing);
   };
   return (
     <Stack>
@@ -43,8 +48,8 @@ export const Privacy = ({ setFormData, formData, formNumber }: FormType) => {
             {...register("privacy", {
               required: "E' necessarrio accettare",
             })}
-            onChange={handleUpdateFormData}
-            isChecked={formData.form8}
+            onChange={handleUpdatePrivacy}
+            isChecked={formData.privacy}
           >
             {" "}
             <Text mt="1.5rem">
@@ -59,7 +64,10 @@ export const Privacy = ({ setFormData, formData, formNumber }: FormType) => {
       </HStack>
 
       <HStack pl="1rem">
-        <Checkbox colorScheme={"tods"} mb="1.5rem">
+        <Checkbox {...register("marketing", {
+              required: "E' necessarrio accettare",
+            })}
+            onChange={handleUpdateMarketing} colorScheme={"tods"} mb="1.5rem" isChecked={formData.marketing}>
           {" "}
           <Text mt="1.5rem">
             {" "}
