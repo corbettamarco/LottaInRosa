@@ -7,8 +7,7 @@ export const ThankYouPage = () => {
     <VStack mt="2rem">
       <CheckCircleIcon color="tods.300" boxSize="2rem" />
       <Heading py="1rem" fontStyle={"italic"} fontSize={"lg"}>
-       "Grazie per aver completato il sondaggio. Riceverai il codice
-        sconto al tuo indirizzo email"
+       "Grazie per aver completato il sondaggio!"
       </Heading>
       <Text
         fontSize={"1.5rem"}
