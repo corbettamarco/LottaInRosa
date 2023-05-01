@@ -1,6 +1,6 @@
 # TOD's NPS
 
-### NPS (NET PROMOTER SCORE) created for TOD's Group during a project work using:
+### Multistep NPS (NET PROMOTER SCORE) form created for TOD's Group during a project work using:
 
 > React + TypeScript
 >
