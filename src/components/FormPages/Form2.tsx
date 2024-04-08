@@ -1,17 +1,9 @@
 import {
   Center,
   FormControl,
-  FormLabel,
-  HStack,
-  Show,
-  Spacer,
   Stack,
-  Text,
-  Textarea,
-  useRadioGroup,
-  VStack,
+  useRadioGroup
 } from "@chakra-ui/react";
-import React from "react";
 import { FormType } from "../../types/FormTypes";
 import { FormButton } from "../FormButton";
 import { FormHeading } from "./FormHeading";
@@ -26,45 +18,39 @@ export const Form2 = ({
   formTextValue,
   setFormTextValue,
 }: FormType) => {
-  const options = ["1", "2", "3", "4", "5"];
-  const options2 = [
-    "Per niente soddisfatto",
-    "Non molto soddisfatto",
-    "Sufficientemente soddisfatto",
-    "Soddisfatto",
-    "Pienamente soddisfatto",
-  ];
+  const options =  ["1", "2", "3", "4"];
+  const options2 = ["25%", "10%", "40%", "15%"];
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Form2Group",
     defaultValue: formData[formNumber] || "",
   });
   const group = getRootProps();
-  const handleChange = (value: string) => {
-    setFormTextValue({...formTextValue, [formNumber]: value });
-  };
+  // const handleChange = (value: string) => {
+  //   setFormTextValue({ ...formTextValue, [formNumber]: value });
+  // };
   return (
     <>
       <FormHeading
         title={
-          "COME VALUTEREBBE I SEGUENTI SERVIZI DELLA NOSTRA BOUTIQUE ONLINE?"
+          subtitle
         }
-        pageNumber={2}
-        subtitle={subtitle ? subtitle : ""}
+        pageNumber={formNumber.replace(/\D/g, "")}
+        subtitle={""}
       />
 
-      <Show above="md">
+      {/* <Show above="md">
         <Center>
           <HStack w={"40rem"}>
             <Text fontStyle={"italic"}>{options2[0]}</Text>
             <Spacer /> <Text fontStyle={"italic"}>{options2[4]}</Text>
           </HStack>
         </Center>
-      </Show>
+      </Show> */}
       <FormControl>
         <Center>
           <Stack
             direction={["column", "column", "row", "row", "row"]}
-            justifyContent={"space-evenly"}
+            justifyContent={"space-between"}
             {...group}
             textAlign="center"
           >
@@ -88,7 +74,7 @@ export const Form2 = ({
           </Stack>
         </Center>
 
-        <Center mt="2rem">
+        {/* <Center mt="2rem">
           <VStack w="50%" minH="8rem">
             {(formData[formNumber] === "1" || formData[formNumber] === "2") && (
               <>
@@ -103,7 +89,7 @@ export const Form2 = ({
               </>
             )}
           </VStack>
-        </Center>
+        </Center> */}
       </FormControl>
     </>
   );

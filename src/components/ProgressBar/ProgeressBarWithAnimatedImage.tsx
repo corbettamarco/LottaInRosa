@@ -15,7 +15,7 @@ export const ProgressBarWithAnimatedImage = ({
     <Box position="relative" mb="5%" w="80%" mt="1rem">
       <Image
         src={
-          "scarpa.png"
+          "fiocco.jpg"
         }
         alt="shoe"
         className={"shoe"}
@@ -24,7 +24,7 @@ export const ProgressBarWithAnimatedImage = ({
         w="40px"
         h="40px"
       />
-      <Progress  rounded={"md"} value={progress} bgColor="#F5F5DC"  isAnimated size="md"  />
+      <Progress  rounded={"md"} value={progress} bgColor="tods.100"  isAnimated size="md"  />
     </Box></Center>
   );
 };

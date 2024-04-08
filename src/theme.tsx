@@ -2,18 +2,19 @@ import { extendTheme } from "@chakra-ui/react";
 
 export const todsTheme = extendTheme({
   colors: {
-    tods: {
-      50: "#f9f3e6",
-      100: "#e1dacf",
-      200: "#c9c1b4",
-      300: "#b3a999",
-      400: "#9c907d",
-      500: "#827663",
-      600: "#655c4c",
-      700: "#494235",
-      800: "#2d271d",
-      900: "#130d00",
-    },
+    tods: 
+        {
+          50: '#ffe3ff',
+          100: '#ffb3f9',
+          200: '#fb83f2',
+          300: '#f952ec',
+          400: '#f622e5',
+          500: '#dd09cc',
+          600: '#ad03a0',
+          700: '#7c0072',
+          800: '#4c0046',
+          900: '#1d001b',
+        },
   },
   components: {
     Button: {
@@ -35,7 +36,7 @@ export const todsTheme = extendTheme({
           bg: " #FFFDD0",
           boxShadow: "0 0 2px 2px #efdfde",
           _hover: {
-            bg: " #F5F5DC",
+            bg: " tods.200",
           },
           h:"2.5rem"
         },

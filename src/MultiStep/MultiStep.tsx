@@ -1,5 +1,5 @@
-import { Box, Center, Image } from "@chakra-ui/react";
-import { FormEvent } from "react";
+import { Box, Center, HStack, Heading, Image } from "@chakra-ui/react";
+import { FormEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormButtonGroup } from "../components/FormButtonGroup";
 import { ThankYouPage } from "../components/FormPages/ThankYouPage";
@@ -9,6 +9,7 @@ import { useProgress } from "../components/hooks/useProgress";
 import { getForms } from "../components/utils/getForms";
 import "./animations.css";
 import { MergedFormDataType } from "../types/FormTypes";
+import { checkAnswers } from "../components/utils/checkAnswers";
 
 export const Multistep = () => {
   const {
@@ -36,12 +37,14 @@ export const Multistep = () => {
     mode: "onChange",
   });
 
+  const [correctAnswers, setCorrectAnswers] = useState(0)
+  
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setThankyou(true);
     const mergedFormData: any = Object.entries(formData).reduce(
       (accumulator, [key, value]) => {
-        if (key !== "form8") {
+        // if (key !== "form10") {
           return {
             ...accumulator,
             [key]: {
@@ -49,41 +52,59 @@ export const Multistep = () => {
               points: value,
             },
           };
-        }
-        return accumulator;
+        // }
+        // return accumulator;
       },
       {}
     );
-    mergedFormData.marketing = mergedFormData.marketing.points;
-    mergedFormData.privacy = mergedFormData.privacy.points;
+    // mergedFormData.marketing = mergedFormData.marketing.points;
+    // mergedFormData.privacy = mergedFormData.privacy.points;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const formResult: MergedFormDataType = mergedFormData; //form output
-
+    setCorrectAnswers(()=>checkAnswers(formResult))
   };
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} style={{ overflowX: "clip" }}>
-      <Center>
+      <Center overflowY={"clip"} >
         <Box
+        h='90vh'
+        bgColor={'tods.50'}
           borderWidth="1px"
           rounded="lg"
           shadow="1px 1px 3px rgba(0,0,0,0.3)"
-          maxWidth={"50rem"}
-          p={4}
-          mx="2rem"
-          my="1rem"
-          minW={["90vw", "90vw", "90vw", "50rem", "50rem"]}
+          p={2}
+          mx="4rem"
+          maxH={["fit-content", "fit-content", "80vh", "80vh", "80vh"]}
+          my="2rem"
+          minW={["90vw", "90vw", "90vw", "90vw", "90vw"]}
+          display={'flex'}
+          flexDirection={'column'}
         >
+          <HStack ml={"auto"}
+            mr={"auto"} justifyContent={"space-evenly"} my="1rem">
           <Image
-            src="tods-logo.png"
+            src="fiocco.jpg"
             boxSize="fit-content"
-            h="5rem"
-            mb="1rem"
+            h={['3rem','3rem','4rem','5rem','6rem']}
             display={"block"}
-            ml={"auto"}
-            mr={"auto"}
             alt="logo"
+            borderRadius={'100%'}
           />
+          <Heading fontSize={{sm:'2xl', md:'3xl'}} fontStyle={'italic'} color={"tods.600"} textAlign={"center"}>
+            Lotta in Rosa
+          </Heading>
+          <Image
+            src="fiocco.jpg"
+            boxSize="fit-content"
+            h={['3rem','3rem','4rem','5rem','6rem']}
+            display={"block"}
+            alt="logo"
+            borderRadius={'100%'}
+            
+          />
+        </HStack>
+          
           {thankyou === false ? (
             <>
               <ProgressBarWithAnimatedImage
@@ -98,7 +119,6 @@ export const Multistep = () => {
                     ? "slide-in-right"
                     : "slide-in-left"
                 }
-                h={["fit-content", "fit-content", "60vh", "60vh", "60vh"]}
               >
                 {forms.find((form) => form.key === step)?.component}
               </Box>
@@ -111,10 +131,12 @@ export const Multistep = () => {
               />
             </>
           ) : (
-            <ThankYouPage />
+            <ThankYouPage correctAnswers={correctAnswers}/>
           )}
         </Box>
       </Center>
     </form>
   );
 };
+
+

@@ -1,5 +1,4 @@
-import { Box, Hide, Text, useRadio } from "@chakra-ui/react";
-import React from "react";
+import { Box, Text, useRadio } from "@chakra-ui/react";
 
 export function FormButton(props: any) {
   const { getInputProps, getRadioProps } = useRadio(props);
@@ -18,18 +17,18 @@ export function FormButton(props: any) {
         {...checkbox}
         cursor="pointer"
         fontWeight="bold"
-        color="orange.600"
+        color="tods.600"
         mt="1rem"
         px={[".5rem", "1rem", "1rem", "1rem", "1rem"]}
         mr="0.5rem"
         bgColor="white"
         borderWidth="2px"
         shadow="sm"
-        borderColor="#F5F5DC"
+        borderColor="tods.200"
         _checked={{
-          bg: "#F5F5DC",
-          color: "orange.600",
-          borderColor: "#F5F5DC",
+          bg: "tods.200",
+          color: "tods.600",
+          borderColor: "tods.200",
         }}
         py={3}
         rounded="md"
@@ -37,8 +36,8 @@ export function FormButton(props: any) {
         maxW="30rem"
         minW={props.minW ? props.minW : "5rem"}
       >
-        <Text noOfLines={1} fontSize={["xs", "sm", "md", "lg", "xl"]}>
-          {props.value} <Hide above="md"> {props.label}</Hide>
+        <Text noOfLines={1} fontSize={["xs", "sm", "md", "md", "md"]}>
+          {props.label}
         </Text>
       </Box>
     </Box>

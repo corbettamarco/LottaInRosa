@@ -20,7 +20,8 @@ export const FormHeading = ({
             textAlign={"center"}
             fontWeight="semibold"
             mb="2%"
-            textTransform={"uppercase"}
+            mt=".3em"
+            // textTransform={"uppercase"}
             color={"black"}
             overflow="hidden"
           >
@@ -32,9 +33,9 @@ export const FormHeading = ({
                 paddingRight:".1rem"
               }}
             >
-              {pageNumber ? pageNumber : "1"}.
+              {pageNumber ? pageNumber : ""}.&nbsp;
             </span>
-            {title ? title : "TITLE TITLE TILE ? "}
+            {title ? title : ""}
           </Heading>
         </HStack>
       </Flex>

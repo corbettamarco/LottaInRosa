@@ -14,6 +14,12 @@ export const isFormPageEmpty = (step: number, formData: any): boolean | undefine
         return formData.form6 === "";
       case 7:
         return formData.form7 === "";
+      case 8:
+        return formData.form8 === "";
+      case 9:
+        return formData.form9 === "";
+      case 10:
+        return formData.form10 === "";
       default:
         return true;
     }

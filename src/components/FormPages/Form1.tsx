@@ -1,14 +1,9 @@
 import {
   Center,
   FormControl,
-  HStack,
-  Show,
-  Spacer,
   Stack,
-  Text,
-  useRadioGroup,
+  useRadioGroup
 } from "@chakra-ui/react";
-import React from "react";
 import { FormType } from "../../types/FormTypes";
 import { FormButton } from "../FormButton";
 import { FormHeading } from "./FormHeading";
@@ -21,13 +16,12 @@ export const Form1 = ({
   subtitle,
   formNumber,
 }: FormType) => {
-  const options = ["1", "2", "3", "4", "5"];
+  const options = ["1", "2", "3", "4"];
   const options2 = [
-    "Per niente soddisfatto",
-    "Non molto soddisfatto",
-    "Sufficientemente soddisfatto",
-    "Soddisfatto",
-    "Pienamente soddisfatto",
+    "È dolente al tatto",
+    "Le dimensioni variano in base al ciclo mestruale",
+    "Appare duro e dalla superfiie irregolare",
+    "Appare mobile",
   ];
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Form1Group",
@@ -38,19 +32,13 @@ export const Form1 = ({
   return (
     <>
       <FormHeading
-        title={"COME VALUTEREBBE LA NOSTRA BOUTIQUE ONLINE?"}
+        title={
+          "Il nodulo al seno è il sintomo più comune del tumore al seno, quali altre caratteristiche dovrebbero destare preoccupazione?"
+        }
         pageNumber={1}
         subtitle={subtitle ? subtitle : ""}
       />
 
-      <Show above="md">
-        <Center>
-          <HStack w={"40rem"}>
-            <Text fontStyle={"italic"}>{options2[0]}</Text>
-            <Spacer /> <Text fontStyle={"italic"}>{options2[4]}</Text>
-          </HStack>
-        </Center>
-      </Show>
       <FormControl>
         <Center>
           <Stack

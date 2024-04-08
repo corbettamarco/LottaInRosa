@@ -6,11 +6,13 @@
     right: 3px;
     transition:  0.3s ease-out;
     z-index: 999;
+    border-radius: 100%;
+    border: 1px solid #ad03a0;
   }
   
   
   .css-1jrtelv{
-    background-color: #8B4513 !important;/*progress bar color */
+    background-color: #ad03a0!important;/*progress bar color */
     transition-duration: 1s ;/*progress bar speed*/
     transition-property: all !important;
   }

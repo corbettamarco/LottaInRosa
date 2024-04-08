@@ -21,14 +21,14 @@ export const FormButtonGroup = ({
   formState,
 }: FormButtonGroupType) => {
   return (
-    <ButtonGroup mt="1rem" w="100%" minW={"10rem"}>
-      <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"}>
+    <ButtonGroup mt={['2rem','1rem','6rem','6rem','6rem']} w="100%" minW={"10rem"}>
+      <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"} bottom={0}>
         <Button
           onClick={handleBackClick}
           visibility={step === 1 ? "hidden" : "visible"}
           colorScheme="tods"
           variant="outline"
-          bgColor={"#F5F5DC"}
+          bgColor={"tods.50"}
           w="2.5rem"
           h="2.5rem"
         >
@@ -40,10 +40,10 @@ export const FormButtonGroup = ({
           w="2.5rem"
           h="2.5rem"
           ml="1.5rem"
-          hidden={step === 8 || isFormPageEmpty(step, formData)}
+          hidden={step === 10 || isFormPageEmpty(step, formData)}
           onClick={handleNextClick}
           colorScheme="tods"
-          bgColor={"#F5F5DC"}
+          bgColor={"tods.200"}
           variant="outline"
         >
           <Text>
@@ -51,7 +51,7 @@ export const FormButtonGroup = ({
           </Text>
         </Button>
       </Box>
-      {step === 8 ? (
+      {step === 10 && !isFormPageEmpty(step, formData) ? (
         <Button
           variant="submit"
           mr={"auto"}

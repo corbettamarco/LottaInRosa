@@ -1,6 +1,6 @@
-# TOD's NPS
+# Lotta in Rosa
 
-### Multistep NPS (NET PROMOTER SCORE) form created for TOD's Group during a project work using:
+### Quiz Multistep e Sondagggio sul Tumore al seno
 
 > React + TypeScript
 >
@@ -9,4 +9,4 @@
 > React Hook Form
 
 
-#### AmpLify Link: https://main.d1x2kwrednx0xx.amplifyapp.com/
+#### Link: 

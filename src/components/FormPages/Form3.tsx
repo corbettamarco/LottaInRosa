@@ -21,19 +21,13 @@ export const Form3 = ({
   setFormData,
   formData,
 }: FormType) => {
-  const options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+  const options =  ["1", "2", "3", "4"];
 
   const options2 = [
-    "No, per niente",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "Certamente sì",
+    "È dolente al tatto",
+    "Le dimensioni variano in base al ciclo mestruale",
+    "Appare duro e dalla superfiie irregolare",
+    "Appare mobile",
   ];
 
   const { getRootProps, getRadioProps } = useRadioGroup({
