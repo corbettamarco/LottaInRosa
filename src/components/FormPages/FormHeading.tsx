@@ -18,7 +18,7 @@ export const FormHeading = ({
           <Heading
             fontSize={["md", "lg", "xl", "2xl", "2xl"]}
             textAlign={"center"}
-            fontWeight="semibold"
+            fontWeight="bold"
             // mb="2%"
              mt=".3em"
             // textTransform={"uppercase"}

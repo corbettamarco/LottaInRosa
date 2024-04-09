@@ -4,10 +4,10 @@ import { Heading, Text, VStack } from "@chakra-ui/react";
 export const ThankYouPage = ({
   correctAnswers,
 }: {
-  correctAnswers?: Number;
+  correctAnswers?: number;
 }) => {
   return (
-    <VStack mt="2rem">
+    <VStack mt="2rem" textAlign={'center'}>
       <CheckCircleIcon color="tods.300" boxSize="2rem" />
       <Heading
         py="1rem"
@@ -20,10 +20,22 @@ export const ThankYouPage = ({
       </Heading>
       <Text
         fontSize={"1.5rem"}
-        color={"tods.400"}
+        color={"tods.600"}
+        fontWeight={'bold'}
         _hover={{ textUnderlineOffset: "7px" }}
       >
-        {correctAnswers?.toString()} risposte corrette su 8.
+        Il tuo risultato é {correctAnswers?.toString()}/8 <br/><br/>
+      </Text>
+      <Text color='black' fontSize='1.2rem' fontWeight={'bold'}>
+      {
+        correctAnswers && correctAnswers <= 3 && "Ne sai troppo poco, informati su www.lottainrosa.it"
+      }
+      {
+        correctAnswers && correctAnswers > 3 && correctAnswers <= 5 && "Potresti far meglio"
+      }
+      {
+        correctAnswers && correctAnswers > 5 && "Sei ben informata!"
+      }
       </Text>
     </VStack>
   );

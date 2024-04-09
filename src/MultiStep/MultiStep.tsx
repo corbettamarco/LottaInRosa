@@ -36,21 +36,21 @@ export const Multistep = () => {
     mode: "onChange",
   });
 
-  const [correctAnswers, setCorrectAnswers] = useState(0)
-  
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setThankyou(true);
     const mergedFormData: any = Object.entries(formData).reduce(
       (accumulator, [key, value]) => {
         // if (key !== "form8") {
-          return {
-            ...accumulator,
-            [key]: {
-              textValue: formTextValue[key] || "",
-              points: value,
-            },
-          };
+        return {
+          ...accumulator,
+          [key]: {
+            textValue: formTextValue[key] || "",
+            points: value,
+          },
+        };
         // }
         // return accumulator;
       },
@@ -60,50 +60,65 @@ export const Multistep = () => {
     // mergedFormData.privacy = mergedFormData.privacy.points;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const formResult: any = mergedFormData; //form output
-    setCorrectAnswers(()=>checkAnswers(formResult))
+    setCorrectAnswers(() => checkAnswers(formResult));
   };
 
   return (
     <form onSubmit={(e) => handleSubmit(e)} style={{ overflowX: "clip" }}>
-      <Center overflowY={"clip"} >
+      <Center overflowY={"clip"}>
         <Box
-        h='90vh'
-        bgColor={'tods.50'}
+          className="background-main"
+          
+          backgroundImage={"fioritura.jpg"}
+          backgroundPosition={"center"}
+          backgroundSize={"cover"}
+          backgroundBlendMode={"soft-light"}
+          backgroundRepeat={"no-repeat"}
+          backgroundColor={"#ffffff75"}
           borderWidth="1px"
           rounded="lg"
           shadow="1px 1px 3px rgba(0,0,0,0.3)"
           p={2}
           mx="4rem"
-          maxH={["fit-content", "fit-content", "80vh", "80vh", "80vh"]}
+          minH={'90vh'}
           my="2rem"
           minW={["90vw", "90vw", "90vw", "90vw", "90vw"]}
-          display={'flex'}
-          flexDirection={'column'}
+          display={"flex"}
+          flexDirection={"column"}
         >
-          <HStack ml={"auto"}
-            mr={"auto"} justifyContent={"space-evenly"} my="1rem">
-          <Image
-            src="fiocco.jpg"
-            boxSize="fit-content"
-            h={['3rem','3rem','4rem','5rem','6rem']}
-            display={"block"}
-            alt="logo"
-            borderRadius={'100%'}
-          />
-          <Heading fontSize={{sm:'2xl', md:'3xl'}} fontStyle={'italic'} color={"tods.600"} textAlign={"center"}>
-            Lotta in Rosa
-          </Heading>
-          <Image
-            src="fiocco.jpg"
-            boxSize="fit-content"
-            h={['3rem','3rem','4rem','5rem','6rem']}
-            display={"block"}
-            alt="logo"
-            borderRadius={'100%'}
-            
-          />
-        </HStack>
-          
+          <HStack
+            ml={"auto"}
+            mr={"auto"}
+            justifyContent={"space-evenly"}
+            my="1rem"
+          >
+            <Image
+              src="fiocco.jpg"
+              boxSize="fit-content"
+              h={["3rem", "3rem", "4rem", "5rem", "6rem"]}
+              display={"block"}
+              alt="logo"
+              borderRadius={"100%"}
+            />
+            <Heading
+              fontSize={{ sm: "2xl", md: "3xl" }}
+              fontStyle={"italic"}
+              color={"black"}
+              textAlign={"center"}
+              fontWeight={'1000'}
+            >
+              Quante ne sai sul tumore al seno?
+            </Heading>
+            <Image
+              src="fiocco.jpg"
+              boxSize="fit-content"
+              h={["3rem", "3rem", "4rem", "5rem", "6rem"]}
+              display={"block"}
+              alt="logo"
+              borderRadius={"100%"}
+            />
+          </HStack>
+
           {thankyou === false ? (
             <>
               <ProgressBarWithAnimatedImage
@@ -130,12 +145,10 @@ export const Multistep = () => {
               />
             </>
           ) : (
-            <ThankYouPage correctAnswers={correctAnswers}/>
+            <ThankYouPage correctAnswers={correctAnswers} />
           )}
         </Box>
       </Center>
     </form>
   );
 };
-
-
