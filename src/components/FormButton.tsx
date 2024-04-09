@@ -7,6 +7,7 @@ export function FormButton(props: any) {
 
   const handleUpdateFormData = () => {
     props.setFormData({ ...props.formData, [props.formNumber]: props.buttonNumber });
+    props.setFormData({ ...props.formData, [props.formNumber]: props.buttonNumber });
     console.log(props.buttonNumber)
   };
 

@@ -19,11 +19,12 @@ export const FormHeading = ({
             fontSize={["md", "lg", "xl", "2xl", "2xl"]}
             textAlign={"center"}
             fontWeight="semibold"
-            mb="2%"
-            mt=".3em"
+            // mb="2%"
+             mt=".3em"
             // textTransform={"uppercase"}
             color={"black"}
             overflow="hidden"
+            height={'3rem'}
           >
             <span
               style={{

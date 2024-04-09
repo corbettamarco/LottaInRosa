@@ -1,18 +1,28 @@
 import { Form2 } from "../FormPages/Form2";
 
-export const getForms = (formData: any, setFormData: any, formTextValue: any, setFormTextValue: any) => {
+export const solutions = [
+  '1','3','2','3','3','1','4','2'
+]
+
+export const getForms = (
+  formData: any,
+  setFormData: any,
+  formTextValue: any,
+  setFormTextValue: any
+) => {
   return [
     {
       key: 1,
       component: (
         <Form2
           formNumber={"form1"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Il carcinoma della mammella rappresenta il ____ di tutti I tumori che colpiscono le donne."
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={1}
+          answers={["25%", "50%", "10%", "18%"]}
         />
       ),
     },
@@ -21,12 +31,19 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form2"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Nel corso degli ultimi 3 decenni l'incidenza è: "
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={2}
+          answers={[
+            "Diminuita del 10% l'anno",
+            "Nè diminuita nè aumentata",
+            "Aumentata del 3% l'anno",
+            "Diminuita del 2% l'anno",
+          ]}
+          
         />
       ),
     },
@@ -35,12 +52,14 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form3"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Ogni ___ una donna nel mondo riceve una diagnosi di tumore al seno"
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={3}
+          answers={["3 minuti", "19 secondi", "60 minuti", "20 minuti"]}
+          
         />
       ),
     },
@@ -49,12 +68,14 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form4"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Il tasso di guarigione quando il tumore è scoperto in fase iniziale è del: "
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={4}
+          answers={["100%", "90%", "98%", "79%"]}
+          
         />
       ),
     },
@@ -63,12 +84,19 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form5"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Tra I fattori di protezione vi è: "
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={5}
+          answers={[
+            "Le radiazioni ionizzanti",
+            "La terapia ormonale sostitutiva",
+            "Una prima gravidanza precoce",
+            "Un precedente carcinoma della mammella",
+          ]}
+          
         />
       ),
     },
@@ -77,12 +105,14 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form6"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Consumare 3 bicchieri alcolici al giorno aumenta del ___ il rischio di cancro al seno"
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={6}
+          answers={["50%", "25%", "10%", "70%"]}
+          
         />
       ),
     },
@@ -91,12 +121,14 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form7"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Ogni anno in Italia sono diagnosticati circa ___ nuovi casi"
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={7}
+          answers={["22.000", "33.000", "44.000", "55.000"]}
+          
         />
       ),
     },
@@ -105,40 +137,14 @@ export const getForms = (formData: any, setFormData: any, formTextValue: any, se
       component: (
         <Form2
           formNumber={"form8"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
+          subtitle="Lo stile di vita condotta concorre del ___ al rischio di cancro al seno"
           formData={formData}
           setFormData={setFormData}
           formTextValue={formTextValue}
           setFormTextValue={setFormTextValue}
           key={8}
-        />
-      ),
-    },
-    {
-      key: 9,
-      component: (
-        <Form2
-          formNumber={"form9"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
-          formData={formData}
-          setFormData={setFormData}
-          formTextValue={formTextValue}
-          setFormTextValue={setFormTextValue}
-          key={9}
-        />
-      ),
-    },
-    {
-      key: 10,
-      component: (
-        <Form2
-          formNumber={"form10"}
-          subtitle="Il tumore alla mammella rappresenta il ______ di tutti i tumori che colpiscono le donne"
-          formData={formData}
-          setFormData={setFormData}
-          formTextValue={formTextValue}
-          setFormTextValue={setFormTextValue}
-          key={10}
+          answers={["20%", "30%", "50%", "15%"]}
+          
         />
       ),
     },

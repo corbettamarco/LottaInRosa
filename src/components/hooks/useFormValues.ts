@@ -12,8 +12,6 @@ export const useFormValues = ()=>{
         form6: "",
         form7: "",
         form8: "",
-        form9: "",
-        form10: "",
       });
     
       const [formTextValue, setFormTextValue] = useState<FormTextValueType>({

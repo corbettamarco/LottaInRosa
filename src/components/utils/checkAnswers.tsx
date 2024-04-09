@@ -1,6 +1,14 @@
-import { MergedFormDataType } from "../../types/FormTypes";
+import { solutions } from "./getForms";
 
-export function checkAnswers(formResult: MergedFormDataType) {
-    const correctAnswers = 0;
-    return correctAnswers; 
+export function checkAnswers(formResult: { [key: string]: { textValue: string, points: string } }) {
+    let correctAnswers = 0;
+
+    for (const [formName, formData] of Object.entries(formResult)) {
+        const index = parseInt(formName.slice(-1)) - 1;
+        if (formData.points === solutions[index]) {
+            correctAnswers++;
+        }
+    }
+
+    return correctAnswers;
 }

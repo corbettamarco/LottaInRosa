@@ -8,7 +8,6 @@ import { useFormValues } from "../components/hooks/useFormValues";
 import { useProgress } from "../components/hooks/useProgress";
 import { getForms } from "../components/utils/getForms";
 import "./animations.css";
-import { MergedFormDataType } from "../types/FormTypes";
 import { checkAnswers } from "../components/utils/checkAnswers";
 
 export const Multistep = () => {
@@ -44,7 +43,7 @@ export const Multistep = () => {
     setThankyou(true);
     const mergedFormData: any = Object.entries(formData).reduce(
       (accumulator, [key, value]) => {
-        // if (key !== "form10") {
+        // if (key !== "form8") {
           return {
             ...accumulator,
             [key]: {
@@ -60,7 +59,7 @@ export const Multistep = () => {
     // mergedFormData.marketing = mergedFormData.marketing.points;
     // mergedFormData.privacy = mergedFormData.privacy.points;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const formResult: MergedFormDataType = mergedFormData; //form output
+    const formResult: any = mergedFormData; //form output
     setCorrectAnswers(()=>checkAnswers(formResult))
   };
 

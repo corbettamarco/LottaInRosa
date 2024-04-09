@@ -33,30 +33,33 @@ export const FormButtonGroup = ({
           h="2.5rem"
         >
           <Text>
-            <ImArrowLeft2 color="#8B4513" />
+            <ImArrowLeft2 color="#dd09cc" />
           </Text>
         </Button>
         <Button
           w="2.5rem"
           h="2.5rem"
           ml="1.5rem"
-          hidden={step === 10 || isFormPageEmpty(step, formData)}
+          hidden={step === 8 || isFormPageEmpty(step, formData)}
           onClick={handleNextClick}
           colorScheme="tods"
           bgColor={"tods.200"}
           variant="outline"
         >
           <Text>
-            <ImArrowRight2 color="#8B4513" />
+            <ImArrowRight2 color="#dd09cc" />
           </Text>
         </Button>
       </Box>
-      {step === 10 && !isFormPageEmpty(step, formData) ? (
+      {step === 8 && !isFormPageEmpty(step, formData) ? (
         <Button
           variant="submit"
           mr={"auto"}
           type="submit"
           disabled={!formState.isValid}
+          bgColor={"tods.200"}
+          borderColor={'tods.400'}
+          borderWidth={'2px'}
         >
           Invia
         </Button>

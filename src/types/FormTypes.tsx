@@ -8,6 +8,7 @@ export type FormType = {
   formNumber: string;
   formTextValue?: any;
   setFormTextValue?: any;
+  answers: Array<String>;
 };
 
 export type FormTextValueType = {
@@ -28,8 +29,6 @@ export type FormValueType = {
   form6: string;
   form7: string;
   form8: string;
-  form9: string;
-  form10: string;
 };
 
 export type MergedFormDataType = {
@@ -41,8 +40,6 @@ export type MergedFormDataType = {
   form6: string;
   form7: string;
   form8: string;
-  form9: string;
-  form10: string;
   privacy: boolean;
   marketing: boolean;
 };

@@ -16,14 +16,14 @@ export const ThankYouPage = ({
         textAlign={"center"}
         lineHeight={"2rem"}
       >
-        Grazie per aver risposto al sondaggio.<br></br>
+        Grazie per aver risposto al quiz!<br></br>
       </Heading>
       <Text
         fontSize={"1.5rem"}
         color={"tods.400"}
         _hover={{ textUnderlineOffset: "7px" }}
       >
-        {correctAnswers?.toString()} risposte corrette su 10.
+        {correctAnswers?.toString()} risposte corrette su 8.
       </Text>
     </VStack>
   );

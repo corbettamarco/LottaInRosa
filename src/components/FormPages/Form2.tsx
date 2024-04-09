@@ -17,9 +17,10 @@ export const Form2 = ({
   formNumber,
   formTextValue,
   setFormTextValue,
+  answers,
 }: FormType) => {
   const options =  ["1", "2", "3", "4"];
-  const options2 = ["25%", "10%", "40%", "15%"];
+  const options2 = answers;
   const { getRootProps, getRadioProps } = useRadioGroup({
     name: "Form2Group",
     defaultValue: formData[formNumber] || "",
@@ -49,7 +50,7 @@ export const Form2 = ({
       <FormControl>
         <Center>
           <Stack
-            direction={["column", "column", "row", "row", "row"]}
+            direction={["column", "column", "column", "column", "row"]}
             justifyContent={"space-between"}
             {...group}
             textAlign="center"
@@ -64,7 +65,7 @@ export const Form2 = ({
                   formData={formData}
                   value={value}
                   key={value}
-                  textAlign={["left", "left", "center", "center", "center"]}
+                  textAlign={["center", "center", "center", "center", "center"]}
                   buttonNumber={(index + 1).toString()}
                   {...radio}
                   label={options2[index]}
