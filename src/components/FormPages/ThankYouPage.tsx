@@ -31,7 +31,7 @@ export const ThankYouPage = ({
         correctAnswers && correctAnswers <= 3 && "Ne sai troppo poco, informati su www.lottainrosa.it"
       }
       {
-        correctAnswers && correctAnswers > 3 && correctAnswers <= 5 && "Potresti far meglio"
+        correctAnswers && correctAnswers > 3 && correctAnswers <= 5 && "Potresti far meglio, informati su www.lottainrosa.it"
       }
       {
         correctAnswers && correctAnswers > 5 && "Sei ben informata!"

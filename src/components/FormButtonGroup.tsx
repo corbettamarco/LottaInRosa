@@ -21,7 +21,7 @@ export const FormButtonGroup = ({
   formState,
 }: FormButtonGroupType) => {
   return (
-    <ButtonGroup w="100%" bottom={0} position="absolute" display={'flex'} justifyContent={'space-between'} flexDirection={'row'} >
+    <ButtonGroup w="100%" bottom={['3rem','3rem',0,0,0]} position="absolute" display={'flex'} justifyContent={'space-between'} flexDirection={'row'} >
       <Box w="100%" flexDirection={'row'} display={'flex'}>
         <Button
           onClick={handleBackClick}
