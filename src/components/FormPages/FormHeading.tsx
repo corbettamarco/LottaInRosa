@@ -24,7 +24,7 @@ export const FormHeading = ({
             // textTransform={"uppercase"}
             color={"black"}
             overflow="hidden"
-            height={'3rem'}
+            height={'4rem'}
           >
             <span
               style={{

@@ -1,4 +1,4 @@
-import { Box, Center, HStack, Heading, Image, background } from "@chakra-ui/react";
+import { Box, Center, HStack, Heading } from "@chakra-ui/react";
 import { FormEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormButtonGroup } from "../components/FormButtonGroup";
@@ -131,7 +131,6 @@ export const Multistep = () => {
                     : "slide-in-left"
                 }
                 paddingX='1.2rem' 
-
               >
                 {forms.find((form) => form.key === step)?.component}
               </Box>

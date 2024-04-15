@@ -1,4 +1,4 @@
-import { ButtonGroup, Button, Box, Text, Spacer, Flex } from "@chakra-ui/react";
+import { ButtonGroup, Button, Box, Text, Spacer } from "@chakra-ui/react";
 import React from "react";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 import { isFormPageEmpty } from "./utils/isFormPageEmpty";
