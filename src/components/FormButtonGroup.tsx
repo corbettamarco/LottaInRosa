@@ -44,7 +44,7 @@ export const FormButtonGroup = ({
           hidden={step === 8 || isFormPageEmpty(step, formData)}
           onClick={handleNextClick}
           colorScheme="tods"
-          bgColor={"tods.200"}
+          bgColor={"#F0B2BE"}
           variant="outline"
           borderRadius={'0'}
           w={'45vw'}
@@ -60,7 +60,7 @@ export const FormButtonGroup = ({
           
           type="submit"
           disabled={!formState.isValid}
-          bgColor={"tods.200"}
+          bgColor={"#F0B2BE"}
           borderColor={'tods.400'}
           borderWidth={'2px'}
           borderBottomWidth={0}

@@ -68,7 +68,7 @@ export const Multistep = () => {
       <Center>
         <Box
           className="background-main"
-          backgroundImage={"fioritura.jpg"}
+          backgroundImage={"guantoni.png"}
           backgroundPosition={"center"}
           backgroundSize={"cover"}
           backgroundBlendMode={"soft-light"}
