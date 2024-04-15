@@ -1,4 +1,4 @@
-import { ButtonGroup, Button, Box, Text } from "@chakra-ui/react";
+import { ButtonGroup, Button, Box, Text, Spacer, Flex } from "@chakra-ui/react";
 import React from "react";
 import { ImArrowLeft2, ImArrowRight2 } from "react-icons/im";
 import { isFormPageEmpty } from "./utils/isFormPageEmpty";
@@ -21,49 +21,60 @@ export const FormButtonGroup = ({
   formState,
 }: FormButtonGroupType) => {
   return (
-    <ButtonGroup mt={['2rem','1rem','6rem','6rem','6rem']} w="100%" minW={"10rem"}>
-      <Box display={"flex"} ml={"auto"} mr={"auto"} gap={"6rem"} bottom={0}>
+    <ButtonGroup w="100%" bottom={0} position="absolute" display={'flex'} justifyContent={'space-between'} flexDirection={'row'} >
+      <Box w="100%" flexDirection={'row'} display={'flex'}>
         <Button
           onClick={handleBackClick}
           visibility={step === 1 ? "hidden" : "visible"}
           colorScheme="tods"
           variant="outline"
           bgColor={"tods.50"}
-          w="2.5rem"
-          h="2.5rem"
+          borderRadius={'0'}
+          w={'45vw'}
+          maxW={'45vw'}
+          borderTopRightRadius={'.5rem'}
+
         >
           <Text>
-            <ImArrowLeft2 color="#dd09cc" />
+            <ImArrowLeft2 color="black" />
           </Text>
         </Button>
+        <Spacer/>
         <Button
-          w="2.5rem"
-          h="2.5rem"
-          ml="1.5rem"
           hidden={step === 8 || isFormPageEmpty(step, formData)}
           onClick={handleNextClick}
           colorScheme="tods"
           bgColor={"tods.200"}
           variant="outline"
+          borderRadius={'0'}
+          w={'45vw'}
+          maxW={'45vw'}
+          borderTopLeftRadius={'.5rem'}
         >
           <Text>
-            <ImArrowRight2 color="#dd09cc" />
+            <ImArrowRight2 color="black" />
           </Text>
         </Button>
-      </Box>
       {step === 8 && !isFormPageEmpty(step, formData) ? (
         <Button
-          variant="submit"
-          mr={"auto"}
+          
           type="submit"
           disabled={!formState.isValid}
           bgColor={"tods.200"}
           borderColor={'tods.400'}
           borderWidth={'2px'}
+          borderBottomWidth={0}
+          borderRadius={'0'}
+          w={'45vw'}
+          maxW={'45vw'}
+          borderTopLeftRadius={'.5rem'}
+
         >
           Invia
         </Button>
       ) : null}
+            </Box>
+
     </ButtonGroup>
   );
 };

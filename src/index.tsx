@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { Multistep } from './MultiStep/MultiStep';
-import { ChakraProvider } from '@chakra-ui/react';
+import { Center, ChakraProvider } from '@chakra-ui/react';
 import todsTheme from './theme';
 
 const root = ReactDOM.createRoot(
@@ -12,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider theme={todsTheme}>
+      <Center height={'100vh'}>
     <Multistep/>  
+    </Center>
     </ChakraProvider>
   </React.StrictMode>
 );

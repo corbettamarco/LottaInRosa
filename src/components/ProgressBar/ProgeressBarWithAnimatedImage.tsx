@@ -12,7 +12,7 @@ export const ProgressBarWithAnimatedImage = ({
 }: PropsType) => {
   return (
     <Center>
-    <Box position="relative" mb="5%" w="80%" mt="1rem">
+    <Box position="relative" mb="5%" w="80%" mt="1rem" shadow={'lg'} border={'1px solid black'} borderRadius={'.5rem'}>
       <Image
         src={
           "fiocco.jpg"
