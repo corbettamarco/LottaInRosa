@@ -84,6 +84,7 @@ export const Multistep = () => {
           overflowY={"clip"} 
         >
           <HStack
+            pt={'2rem'}
             ml={"auto"}
             mr={"auto"}
             justifyContent={"space-evenly"}
@@ -98,11 +99,13 @@ export const Multistep = () => {
               borderRadius={"100%"}
             /> */}
             <Heading
-              fontSize={{ sm: "2xl", md: "3xl" }}
               fontStyle={"italic"}
-              color={"black"}
+              color={"tods.400"}
               textAlign={"center"}
               fontWeight={'1000'}
+              fontFamily={"cursive"}
+              fontSize={'1.5rem'}
+              px={'.2rem'}
             >
               Quante ne sai sul tumore al seno?
             </Heading>
@@ -131,6 +134,7 @@ export const Multistep = () => {
                     : "slide-in-left"
                 }
                 paddingX='1.2rem' 
+                zIndex={2}
               >
                 {forms.find((form) => form.key === step)?.component}
               </Box>

@@ -21,7 +21,7 @@ export const FormButtonGroup = ({
   formState,
 }: FormButtonGroupType) => {
   return (
-    <ButtonGroup w="100%" bottom={['3rem','3rem',0,0,0]} position="absolute" display={'flex'} justifyContent={'space-between'} flexDirection={'row'} >
+    <ButtonGroup pointerEvents={'none'} w="100%" zIndex={3} bottom={['40vh','40vh','0','0','0']} position="absolute" display={'flex'} justifyContent={'space-between'} flexDirection={'row'} >
       <Box w="100%" flexDirection={'row'} display={'flex'}>
         <Button
           onClick={handleBackClick}
@@ -29,11 +29,11 @@ export const FormButtonGroup = ({
           colorScheme="tods"
           variant="outline"
           bgColor={"tods.50"}
-          borderRadius={'0'}
-          w={'45vw'}
-          maxW={'45vw'}
-          borderTopRightRadius={'.5rem'}
-
+          w={'15vw'}
+          maxW={'15vw'}
+          borderLeftRadius={'0'}
+          minH={'5rem'}
+          pointerEvents={'initial'} 
         >
           <Text>
             <ImArrowLeft2 color="black" />
@@ -41,15 +41,16 @@ export const FormButtonGroup = ({
         </Button>
         <Spacer/>
         <Button
+          pointerEvents={'all'} 
           hidden={step === 8 || isFormPageEmpty(step, formData)}
           onClick={handleNextClick}
           colorScheme="tods"
           bgColor={"#F0B2BE"}
           variant="outline"
-          borderRadius={'0'}
-          w={'45vw'}
-          maxW={'45vw'}
-          borderTopLeftRadius={'.5rem'}
+          w={'15vw'}
+          maxW={'15vw'}
+          borderRightRadius={'0'}
+          minH={'5rem'}
         >
           <Text>
             <ImArrowRight2 color="black" />
@@ -57,17 +58,17 @@ export const FormButtonGroup = ({
         </Button>
       {step === 8 && !isFormPageEmpty(step, formData) ? (
         <Button
-          
+          pointerEvents={'all'} 
           type="submit"
           disabled={!formState.isValid}
           bgColor={"#F0B2BE"}
           borderColor={'tods.400'}
-          borderWidth={'2px'}
-          borderBottomWidth={0}
-          borderRadius={'0'}
-          w={'45vw'}
-          maxW={'45vw'}
+          borderWidth={'1px'}
+          borderRightRadius={'0'}
+          w={'15vw'}
+          maxW={'15vw'}
           borderTopLeftRadius={'.5rem'}
+          minH={'5rem'}
 
         >
           Invia
