@@ -103,7 +103,7 @@ export const Multistep = () => {
               color={"tods.400"}
               textAlign={"center"}
               fontWeight={'1000'}
-              fontFamily={"cursive"}
+              fontFamily={"serif"}
               fontSize={'1.5rem'}
               px={'.2rem'}
             >
