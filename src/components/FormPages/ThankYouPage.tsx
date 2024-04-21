@@ -28,7 +28,7 @@ export const ThankYouPage = ({
         <br />
       </Text>
       <Text color="black" fontSize="1.2rem" fontWeight={"bold"} px={".5rem"}>
-        {correctAnswers && correctAnswers <= 3 && (
+        {correctAnswers <= 3 && (
           <>
             Sembri saperne troppo poco, corri a informarti sul sito{" "}
             <a href="http://www.lottainrosa.it">www.lottainrosa.it</a> e scopri
