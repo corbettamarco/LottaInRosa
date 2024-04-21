@@ -107,7 +107,7 @@ export const Multistep = () => {
               fontSize={'1.5rem'}
               px={'.2rem'}
             >
-              Quante ne sai sul tumore al seno?
+              Quanto ne sai sul tumore al seno?
             </Heading>
             {/* <Image
               src="fiocco.jpg"
